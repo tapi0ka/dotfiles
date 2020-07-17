@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -ue
+set -u
 
 #
 # Dockerインストール
