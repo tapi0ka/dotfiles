@@ -22,9 +22,14 @@ function main () {
   # グループ作成（多分すでに作成済）
   groupadd docker
   # sudoしているユーザをdockerグループに追加
-  usermod -aG docker ${SUDO_USER:-$USER}
+  # ubuntuの場合
+  # usermod -aG docker ${SUDO_USER:-$USER}
+  # Debianの場合
+  gpasswd -a ${SUDO_USER:-$USER} docker
   # システム起動時にdockerサービスが起動するように設定
   systemctl enable docker.service
+
+  rm -f get-docker.sh
 
   # インスタンスの再起動を行わないとsudoなしでdockerコマンドが使えない
 }
