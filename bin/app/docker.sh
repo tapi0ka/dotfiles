@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -u
+set -eu
 
 #
 # Dockerインストール
@@ -19,8 +19,8 @@ function main () {
 
   curl -fsSL https://get.docker.com -o get-docker.sh
   sh get-docker.sh
-  # グループ作成（多分すでに作成済）
-  groupadd docker
+  # グループ作成（すでに作成済の場合エラーで中断するので&&:をつけてる）
+  groupadd docker && :
   # sudoしているユーザをdockerグループに追加
   # ubuntuの場合
   # usermod -aG docker ${SUDO_USER:-$USER}
