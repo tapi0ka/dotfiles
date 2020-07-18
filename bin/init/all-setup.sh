@@ -1,15 +1,14 @@
 #!/bin/bash
-set -eu
 
-# 実行ディレクトリの絶対パスを取得
+# おまじないみたいなもの
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
-
-# 共通関数取得
-. ${SCRIPT_DIR}/../common/function.sh
+. ${SCRIPT_DIR}/../common/function.sh # 共有関数取得
 
 function main () {
   log "Start Init Shell"
   check_root
+  . ${SCRIPT_DIR}/set-timezone.sh
+  . ${SCRIPT_DIR}/set-gitconfig.sh
   . ${SCRIPT_DIR}/create-swap.sh
   log "End Init Shell"
 }
