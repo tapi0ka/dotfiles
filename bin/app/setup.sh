@@ -3,10 +3,17 @@
 # 実行ディレクトリの絶対パスを取得
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
+. ${SCRIPT_DIR}/../common/func.sh
+
 function main () {
+  log "Start App Setup."
   check_root
 
-  . ${SCRIPT_DIR}/create-swap.sh
+  . ${SCRIPT_DIR}/apt.sh
+  . ${SCRIPT_DIR}/docker.sh
+  . ${SCRIPT_DIR}/docker-compose.sh
+
+  log "End App Setup."
 }
 
 function check_root() {

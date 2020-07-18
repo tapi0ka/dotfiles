@@ -22,7 +22,9 @@ function check_root() {
 
 function make_swap() {
   # 3GB分のswapファイル作成
+  echo "スワップ領域作成中。。。"
   dd if=/dev/zero of=/swapfile bs=1M count=3072
+  echo "スワップ領域作成完了"
   chmod 600 /swapfile
   mkswap /swapfile
   swapon /swapfile
