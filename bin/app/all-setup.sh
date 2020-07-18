@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/bin/bash -eu
+# e: return codeが0以外のコマンド実行時に処理を終了する。
+# u: 未定義変数を参照したときに処理を終了する。
+
 
 # 実行ディレクトリの絶対パスを取得
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
