@@ -8,11 +8,12 @@ SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
 function main() {
   read -p "your git name is?" name
-  git config --global user.name ${name}
+  sudo -u ${SUDO_USER:-$USER} git config --global user.name ${name}
   read -p "your git email is?" email
-  git config --global user.email ${email}
+  sudo -u ${SUDO_USER:-$USER} git config --global user.email ${email}
 
-  git config --global core.editor 'vim -c "set fenc=utf-8"'
+  # commit時のデフォルトエディタを変更
+  sudo -u ${SUDO_USER:-$USER} git config --global core.editor 'vim -c "set fenc=utf-8"'
 
   log "Git Setting Complete!"
 }
