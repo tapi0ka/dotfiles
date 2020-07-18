@@ -3,7 +3,7 @@
 # 実行ディレクトリの絶対パスを取得
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
-. ${SCRIPT_DIR}/../common/func.sh
+. ${SCRIPT_DIR}/../common/function.sh
 
 function main () {
   log "Start App Setup."
